@@ -33,8 +33,8 @@ module.exports = function (hexo) {
     hexo.extend.helper.register('column_count', function () {
         let columns = 1;
         if (this.page.__post === true || this.page.__page === true) {
-            // return 2
-            debugger
+            return 2
+            // debugger
             // columns = 0;
             // return columns;
         }
