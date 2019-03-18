@@ -1,0 +1,1 @@
+require('../scripts/hexo-upyun')(hexo);

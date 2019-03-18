@@ -24,10 +24,10 @@ navbar:
     # Navigation bar menu links
     menu:
         首页: /
-        归档: /archives
-        分类: /categories
-        标签: /tags
-        关于: /about
+        归档: /archives/
+        分类: /categories/
+        标签: /tags/
+        关于: /about/
     # Navigation bar links to be shown on the right
     links:
         Download on GitHub:
