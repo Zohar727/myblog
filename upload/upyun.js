@@ -55,6 +55,7 @@ function uploadFile(file) {
       }
     })
   });
+  console.log('全部文件上传成功');
 }
 
 
