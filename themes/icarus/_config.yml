@@ -1,7 +1,7 @@
 # Version of the Icarus theme that is currently used
 version: 2.3.0
 # Path or URL to the website's icon
-favicon: /images/favicon.svg
+favicon: /images/favicon.ico
 # Path or URL to RSS atom.xml
 rss: 
 # Path or URL to the website's logo to be shown on the left of the navigation bar or footer
@@ -50,7 +50,7 @@ footer:
 article:
     # Code highlight theme
     # https://github.com/highlightjs/highlight.js/tree/master/src/styles
-    highlight: Atelier-Forest-Light
+    highlight: atelier-cave-light
     # Whether to show article thumbnail images
     thumbnail: true
     # Whether to show estimate article reading time
@@ -63,8 +63,12 @@ search:
 # Comment plugin settings
 # http://ppoffice.github.io/hexo-theme-icarus/categories/Configuration/Comment-Plugins
 comment:
-    # Name of the comment plugin
-    type: 
+    type: gitalk
+    owner: zohar727         # (required) GitHub user name
+    repo: blog-comment          # (required) GitHub repository name
+    client_id: 82a1d550ca57dfa9f6b0     # (required) OAuth application client id
+    client_secret: 24d7d9639d14f838bfeb7711398871a999f281e2 # (required) OAuth application client secret
+    admin: zohar727
 # Donation entries
 # http://ppoffice.github.io/hexo-theme-icarus/categories/Donation/
 # donate: 
