@@ -5,7 +5,7 @@ let walk = require('walk');
 let path = require('path');
 let cfg = require('../ftpconfig');
 
-
+console.log(cfg);
 const service = new upyun.Service(cfg.service, cfg.operate, cfg.password);
 const client = new upyun.Client(service);
 
