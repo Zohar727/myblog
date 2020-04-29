@@ -32,7 +32,7 @@ navbar:
     links:
         Download on GitHub:
             icon: fab fa-github
-            url: 'http://github.com/ppoffice/hexo-theme-icarus'
+            url: 'https://github.com/zohar727'
 # Footer section link settings
 footer:
     # Links to be shown on the right of the footer section
@@ -45,7 +45,7 @@ footer:
             url: 'https://creativecommons.org/licenses/by/4.0/'
         Download on GitHub:
             icon: fab fa-github
-            url: 'http://github.com/ppoffice/hexo-theme-icarus'
+            url: 'https://github.com/zohar727'
 # Article display settings
 article:
     # Code highlight theme
