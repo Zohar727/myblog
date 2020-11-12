@@ -12,7 +12,7 @@ toc: true
 ### HTTP的历史
 早在HTTP建立之初，主要就是为了将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。也是说对于前端来说，我们所写的HTML页面将要放在我们的web服务器上，用户端通过浏览器访问url地址来获取网页的显示内容，但是到了WEB2.0以来，我们的页面变得复杂，不仅仅单纯的是一些简单的文字和图片，同时我们的HTML页面有了CSS，Javascript，来丰富我们的页面展示，当ajax的出现，我们又多了一种向服务器端获取数据的方法，这些其实都是基于HTTP协议的。同样到了移动互联网时代，我们页面可以跑在手机端浏览器里面，但是和PC相比，手机端的网络情况更加复杂，这使得我们开始了不得不对HTTP进行深入理解并不断优化过程中。
 <!--more-->
-![img](https://upload-images.jianshu.io/upload_images/138606-f9ba56daf288760c.png?imageMogr2/auto-orient/strip|imageView2/2/w/559/format/webp)
+![img](https://file.zohar.com.cn/blog/2020051301.webp)
 
 ### HTTP的基本优化
 影响一个HTTP网络请求的因素主要有两个：**带宽和延迟。**  
@@ -53,7 +53,7 @@ HTTP1.0最早在网页中使用是在1996年，那个时候只是使用一些较
 5. **强制基于HTTPS加密传输**：提高的传输的安全性
 
 **SPDY的构成图**：SPDY位于HTTP之下，TCP和SSL之上，这样可以轻松兼容老版本的HTTP协议(将HTTP1.x的内容封装成一种新的frame格式)，同时可以使用已有的SSL功能。  
-![img](https://upload-images.jianshu.io/upload_images/138606-8f9fe1c7b66d3277.png?imageMogr2/auto-orient/strip|imageView2/2/w/238/format/webp)
+![img](https://file.zohar.com.cn/blog/2020051303.webp)
 
 ### HTTP2.0新特性（基于SPDY的升级版）
 #### 二进制分帧
@@ -67,7 +67,7 @@ HTTP1.0最早在网页中使用是在1996年，那个时候只是使用一些较
 
 ##### 什么是二进制分帧
 在二进制分帧层上， HTTP 2.0 会将所有传输的信息分割为更小的消息和帧,并对它们采用二进制格式的编码 ，**其中HTTP1.x的首部信息会被封装到Headers帧，而我们的request body则封装到Data帧里面。**
-![img](https://image-static.segmentfault.com/255/492/2554926774-5b8e41d288514_articlex)
+![img](https://file.zohar.com.cn/blog/2020051302.png)
 
 ##### 二进制分帧如何工作
 **一个TCP连接 -> n个双向数据流 -> n条消息 -> 每条消息由一个或多个帧组成**  
@@ -92,9 +92,9 @@ HTTP 2.0 把 HTTP 协议通信的基本单位缩小为一个一个的帧，这�
 
 ##### 多路复用是和工作的
 - HTTP1.X版本的多路复用（Pipeling 流水线）
-![img](https://user-gold-cdn.xitu.io/2018/1/5/160c5b5d678210bb?imageslim)
+![img](https://file.zohar.com.cn/blog/2020051304.png)
 - HTTP2.0
-![img](https://user-gold-cdn.xitu.io/2018/1/5/160c5b6a596f82fe?imageslim)
+![img](https://file.zohar.com.cn/blog/2020051305.png)
 
 ##### 多路复用对性能优化工作的贡献
 1. 可以并行交错的发送请求和响应，这些请求和响应之间互不影响
@@ -108,7 +108,7 @@ HTTP 2.0 把 HTTP 协议通信的基本单位缩小为一个一个的帧，这�
 - HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；  
 
 具体如图：   
-![img](https://upload-images.jianshu.io/upload_images/138606-37ea7846b10ea092.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp)
+![img](https://file.zohar.com.cn/blog/2020051306.webp)
 
 #### header压缩
 HTTP1.1并不支持HTTP首部压缩，为此SPDY和HTTP2.0出现了。SPDY是用的是**DEFLATE算法**，而HTTP2.0则使用了专门为首部压缩设计的**HPACK算法**。
@@ -119,7 +119,7 @@ HTTP1.x每次通讯（请求或响应）都会携带首部信息用于描述资�
 ##### header压缩如何工作
 对于相同的数据，**不再重新通过每次请求和响应发送。每个新的首部键值对要么追加到当前表的末尾，要么替换表中之前的值**。首部表在HTTP2.0的链接存续期内始终存在，由客户端和服务端共同渐进的更新。  
 
-![img](https://user-gold-cdn.xitu.io/2018/1/5/160c570596a277bf?imageslim)
+![img](https://file.zohar.com.cn/blog/2020051307.webp)
 
 ##### 首部压缩性能优化工作的贡献
 首部表在HTTP2.0使用了首部压缩的技术。使报头更紧凑，更快速传输，有利于移动网络环境。减少每次通讯的数据量，使网络拥塞状态得以改善。
@@ -133,7 +133,7 @@ HTTP2.0新增的一个强大的新功能，就是服务器可以对一个客户�
 ##### 什么是服务器推送（HTTP2.0中）
 服务端根据客户端的请求，提前返回多个响应，推送额外的资源给客户端。如下图，客户端请求stream 1(/page.html)。服务端在返回stream 1的消息的同时推送了stream 2(/script.js)和stream 4(/style.css)
 
-![img](https://user-gold-cdn.xitu.io/2018/1/7/160cfeacdaf62c8b?imageslim)
+![img](https://file.zohar.com.cn/blog/2020051308.webp)
 
 ##### 服务器推送如何工作
 - PUSH_PROMISE帧是服务端向客户端有意推送资源的信号。
